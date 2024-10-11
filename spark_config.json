@@ -1,0 +1,28 @@
+{
+    "sparkConfig": {
+        "appName": "kafkaToFileWriter1"
+    },
+    "readStreamConfig": {
+        "kafka.bootstrap.servers": "localhost:29092,localhost:39092,localhost:49092",
+        "subscribe": "test-topic",
+        "startingOffsets": "{\"test-topic\":{\"0\":-2}}"
+    },
+    "writeStreamConfig": {
+        "queryName": "test-query",
+        "outputMode": "append",
+        "triggerTimeInSec": "120"
+    },
+    "fileConfig": {
+        "format": "csv",
+        "mode": "append",
+        "destPath": "/home/bazingatll/data/rough/kafkaToFileWriter/files"
+    },
+    "mognoConfig": {
+        "dbName": "test_db",
+        "ColName": "test_col"
+    },
+    "withWatermarkConfig": {
+        "withWatermarkCol": "timestamp",
+        "withWatermarkTm": "300 seconds"
+    }
+}
